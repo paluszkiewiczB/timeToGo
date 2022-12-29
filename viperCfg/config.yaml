@@ -1,0 +1,5 @@
+id: -1
+server:
+  port: 2
+redis:
+  keyPrefix: overridden
