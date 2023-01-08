@@ -1,0 +1,14 @@
+version: "3"
+tasks:
+  run:
+    cmds:
+      - | 
+        gojsonschema --schema-package=https://example.com/objectNested=github.com/paluszkiewiczB/timeToGo/jsonschema/main --schema-output=https://example.com/objectNested=generated_schema.go sample.json
+      - go run .
+    sources:
+      - sample.json
+    generates:
+      - generated_schema.go
+  setup:
+    cmds:
+      - which gojsonschema >/dev/null || echo "installing gojsonschema" && go install github.com/atombender/go-jsonschema/cmd/gojsonschema@latest
